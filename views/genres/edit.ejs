@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit Genre</title>
+  </head>
+  <body>
+    <h1>Edit Genre</h1>
+    <form action="/genres/<%= genre.id %>?_method=PUT" method="POST">
+      <label for="name">Genre Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value="<%= genre.name %>"
+        required
+      />
+      <button type="submit">Update Genre</button>
+    </form>
+    <a href="/genres">Back to Genres List</a>
+  </body>
+</html>

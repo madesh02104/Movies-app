@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Genres List</title>
+  </head>
+  <body>
+    <h1>All Genres</h1>
+    <ul>
+      <% genres.forEach(genre => { %>
+      <li>
+        <%= genre.name %> - <a href="/genres/<%= genre.id %>/edit">Edit</a>
+      </li>
+      <% }) %>
+    </ul>
+    <a href="/genres/new">Add New Genre</a>
+  </body>
+</html>
