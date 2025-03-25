@@ -1,16 +1,133 @@
-<h1>Edit Movie</h1>
-<form action="/movies/<%= movie.id %>?_method=PUT" method="POST">
-  <label for="title">Movie Title:</label>
-  <input type="text" id="title" name="title" value="<%= movie.title %>" required />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit Movie Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  <label for="genre_id">Select Genre:</label>
-  <select id="genre_id" name="genre_id">
-    <% genres.forEach(genre => { %>
-      <option value="<%= genre.id %>" <%= genre.id === movie.genre_id ? 'selected' : '' %>>
-        <%= genre.name %>
-      </option>
-    <% }) %>
-  </select>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #e9ecef;
+        color: #2c3e50;
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
 
-  <button type="submit">Update Movie</button>
-</form>
+      .form-container {
+        background-color: #f8f9fa;
+        border-radius: 16px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        padding: 3rem;
+        width: 100%;
+        max-width: 500px;
+        border: 2px solid #4a4e69;
+      }
+
+      h1 {
+        color: #4a4e69;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        text-align: center;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: #4a4e69;
+        border-radius: 2px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 0.75rem;
+        color: #343a40;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      input, select {
+        width: 100%;
+        padding: 0.85rem;
+        margin-bottom: 1.5rem;
+        border: 2px solid #ced4da;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-color: white;
+      }
+
+      input:focus, select:focus {
+        outline: none;
+        border-color: #4a4e69;
+        box-shadow: 0 0 0 3px rgba(74, 78, 105, 0.2);
+      }
+
+      button {
+        background-color: #4a4e69;
+        color: white;
+        border: none;
+        padding: 0.85rem 1.5rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: center;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      button:hover {
+        background-color: #3a3a5a;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      }
+
+      button:active {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Edit Movie</h1>
+      <form action="/movies/<%= movie.id %>?_method=PUT" method="POST">
+        <label for="title">Movie Title:</label>
+        <input type="text" id="title" name="title" value="<%= movie.title %>" required />
+
+        <label for="genre_id">Select Genre:</label>
+        <select id="genre_id" name="genre_id">
+          <% genres.forEach(genre => { %>
+            <option value="<%= genre.id %>" <%= genre.id === movie.genre_id ? 'selected' : '' %>>
+              <%= genre.name %>
+            </option>
+          <% }) %>
+        </select>
+
+        <button type="submit">Update Movie</button>
+      </form>
+    </div>
+  </body>
+</html>

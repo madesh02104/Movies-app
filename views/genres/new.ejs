@@ -2,14 +2,119 @@
 <html lang="en">
   <head>
     <title>Add New Genre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f5f5f9;
+        color: #2c3e50;
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+      .form-container {
+        background-color: #f8f9fa;
+        border-radius: 16px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+        width: 100%;
+        max-width: 500px;
+        border: 2px solid #4a4e69;
+      }
+      h1 {
+        color: #1a1a2e;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        text-align: center;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: #4a4e69;
+        border-radius: 2px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-bottom: 0.75rem;
+        color: #343a40;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      input {
+        width: 100%;
+        padding: 0.85rem;
+        margin-bottom: 1.5rem;
+        border: 2px solid #ced4da;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-color: white;
+      }
+      input:focus {
+        outline: none;
+        border-color: #4a4e69;
+        box-shadow: 0 0 0 3px rgba(74, 78, 105, 0.2);
+      }
+      button {
+        background-color: #4a4e69;
+        color: white;
+        border: none;
+        padding: 0.85rem 1.5rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+      }
+      button:hover {
+        background-color: #3a3a5a;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .back-link {
+        color: #4a4e69;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        display: block;
+      }
+      .back-link:hover {
+        color: #3a3a5a;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <h1>Create a New Genre</h1>
-    <form action="/genres" method="POST">
-      <label for="name">Genre Name:</label>
-      <input type="text" id="name" name="name" required />
-      <button type="submit">Add Genre</button>
-    </form>
-    <a href="/genres">Back to Genres List</a>
+    <div class="form-container">
+      <h1>Create a New Genre</h1>
+      <form action="/genres" method="POST">
+        <label for="name">Genre Name:</label>
+        <input type="text" id="name" name="name" required />
+        <button type="submit">Add Genre</button>
+      </form>
+    </div>
   </body>
 </html>

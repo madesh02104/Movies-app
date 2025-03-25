@@ -32,7 +32,7 @@ const createMovie = async (req, res) => {
       name,
       genre_id,
     ]);
-    res.redirect("/movies");
+    res.redirect("/");
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");
@@ -74,7 +74,7 @@ const updateMovie = async (req, res) => {
       return res.status(404).send("Movie not found");
     }
 
-    res.redirect("/movies");
+    res.redirect("/");
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");
@@ -91,7 +91,7 @@ const deleteMovie = async (req, res) => {
     if (result.rows.length === 0) {
       return res.status(404).send("Movie not found");
     }
-    res.redirect("/movies");
+    res.redirect("/");
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");

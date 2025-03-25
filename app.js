@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
+const homeRouter = require("./routes/index");
 const genresRouter = require("./routes/genres");
 const moviesRouter = require("./routes/movies");
 const methodOverride = require("method-override");
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
+app.use("/", homeRouter);
 app.use("/genres", genresRouter);
 app.use("/movies", moviesRouter);
 
