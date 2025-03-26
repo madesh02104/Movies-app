@@ -4,6 +4,7 @@
   "description": "A movie list application to complete the inventory management task on thye odin project.",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
